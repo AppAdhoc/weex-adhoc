@@ -27,8 +27,8 @@ Pod::Spec.new do |s|
   
   s.requires_arc = true
   
-  s.vendored_frameworks "WeexPluginLoader"
+  s.dependency "WeexPluginLoader"
   s.dependency "WeexSDK"
-  s.vendored_frameworks "AdhocSDK"
+  s.dependency "AdhocSDK"
   s.static_framework = true
 end
