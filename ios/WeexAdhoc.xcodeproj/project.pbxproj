@@ -7,15 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C142FBB8F63231EB2BA7D799 /* libPods-WeexAdhoc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D8AF7581CF948AD4B74240E /* libPods-WeexAdhoc.a */; };
+		02059D92367469EE0FF09B3E /* Pods_WeexAdhoc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53BE4FF4FDBC33D499F37A87 /* Pods_WeexAdhoc.framework */; };
 		C45843F01E84EF7B00D88C0B /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C45843EF1E84EF7B00D88C0B /* Info.plist */; };
 		C45843FC1E84F39100D88C0B /* WeexAdhocModule.h in Headers */ = {isa = PBXBuildFile; fileRef = C45843F61E84F39100D88C0B /* WeexAdhocModule.h */; };
 		C45843FD1E84F39100D88C0B /* WeexAdhocModule.m in Sources */ = {isa = PBXBuildFile; fileRef = C45843F71E84F39100D88C0B /* WeexAdhocModule.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0D8AF7581CF948AD4B74240E /* libPods-WeexAdhoc.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WeexAdhoc.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F1C92092FF9562A4B475501 /* Pods-WeexAdhoc.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeexAdhoc.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeexAdhoc/Pods-WeexAdhoc.debug.xcconfig"; sourceTree = "<group>"; };
+		53BE4FF4FDBC33D499F37A87 /* Pods_WeexAdhoc.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeexAdhoc.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		87F9AEB97654FF7EEA032F16 /* Pods-WeexAdhoc.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeexAdhoc.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeexAdhoc/Pods-WeexAdhoc.release.xcconfig"; sourceTree = "<group>"; };
 		C45843E41E84EF5B00D88C0B /* WeexAdhoc.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WeexAdhoc.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C45843EF1E84EF7B00D88C0B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -28,7 +28,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C142FBB8F63231EB2BA7D799 /* libPods-WeexAdhoc.a in Frameworks */,
+				02059D92367469EE0FF09B3E /* Pods_WeexAdhoc.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,7 +38,7 @@
 		248CB2E7B700A3049EE0727E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0D8AF7581CF948AD4B74240E /* libPods-WeexAdhoc.a */,
+				53BE4FF4FDBC33D499F37A87 /* Pods_WeexAdhoc.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
