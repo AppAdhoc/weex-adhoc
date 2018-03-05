@@ -18,7 +18,7 @@
 #import <WeexSDK/WeexSDK.h>
 #import <AVFoundation/AVFoundation.h>
 #import <ATSDK/ATManager.h>
-#import <WeexAdhoc/WeexAdhocModule.h>
+
 @interface AppDelegate ()
 @end
 
@@ -97,7 +97,6 @@
     [WXSDKEngine registerComponent:@"select" withClass:NSClassFromString(@"WXSelectComponent")];
     [WXSDKEngine registerModule:@"event" withClass:[WXEventModule class]];
     [WXSDKEngine registerModule:@"syncTest" withClass:[WXSyncTestModule class]];
-    [WXSDKEngine registerModule:@"adhoc" withClass:[WeexAdhocModule class]];
     
 #if !(TARGET_IPHONE_SIMULATOR)
     [self checkUpdate];

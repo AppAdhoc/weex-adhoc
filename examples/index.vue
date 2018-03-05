@@ -1,37 +1,132 @@
 <template>
-	<div class="conatiner">
-		<text style="margin-bottom: 20px;">weex plugin examples</text>
-		<div @click="createAction" style="margin: 20px;padding:20px;background-color:#1ba1e2;color:#fff;"><text style="color:#fff">hello world</text></div>
-	</div>
+  <div>
+    <div class="box" @click="onclick" @longpress="onlongpress" @appear="onappear"  @disappear="ondisappear"></div>
+    <div class="row">
+      <text class="button" @click="getFlagClick">getFlagClick</text>
+      <text class="button" @click="track">track</text>
+      <text class="button" @click="trackAttribute">trackAttribute</text>
+      <text class="button" @click="getExp">getExp</text>
+      <text class="button" @click="jump">Jump webView</text>
+    </div>
+  </div>
 </template>
 
-<style>
-	.container{
-		flex: 1;
-	}
-</style>
-
 <script>
+  var nav = weex.requireModule('navigator')
+  const modal = weex.requireModule('modal')
+  const syncTestModal = weex.requireModule('syncTest')
+  const adhocModal = weex.requireModule('adhoc')
+  export default {
+    methods: {
+      onclick (event) {
+        console.log('onclick:', event)
 
-	const plugin = weex.requireModule('adhoc');
-	const modal = weex.requireModule('modal')
+        modal.toast({
+          message: syncTestModal.getString(),
+          duration: 0.8
+        })
+      },
+      onlongpress (event) {
+        console.log('onlongpress:', event)
+        modal.toast({
+          message: 'onlongpress:',
+          duration: 0.8
+        })
+      },
+      onappear (event) {
+        console.log('onappear:', event)
+        modal.toast({
+          message: 'onappear',
+          duration: 0.8
+        })
+      },
+      ondisappear (event) {
+        console.log('ondisappear:', event)
+        modal.toast({
+          message: 'ondisappear',
+          duration: 0.8
+        })
+      },
 
-	module.exports = {
-		data: {
-			value: '',
-			index: 0,
-			txtChange: ''
-		},
-		methods: {
-			createAction: function() {
-				plugin.adhoc_getCurrentExperimentsCallback(function(ret) {
-            		modal.toast({
-              			message:JSON.stringify(ret),
-              			duration: 0.8
-            		})
-        		});
+      getFlagClick (event) {
+        adhocModal.adhoc_getFlag('weexTest','weex',function(ret){
+          modal.toast({
+            message: JSON.stringify(ret),
+            duration: 0.8
+          })
+        })
+      },
 
-			}
-		}
-	}
+      track (event) {
+        modal.toast({
+          message: 'track',
+          duration: 0.8
+        })
+        adhocModal.adhoc_track('weexName','1');
+      },
+
+      trackAttribute (event) {
+        modal.toast({
+          message:'trackAttribute',
+          duration: 0.8
+        })
+        var data = {'he':'bei'};
+        adhocModal.adhoc_trackAttribute('xiao','ai',JSON.stringify(data));
+      },
+
+      getExp (event) {
+        adhocModal.adhoc_getCurrentExperimentsCallback(function(ret) {
+            modal.toast({
+              message:JSON.stringify(ret),
+              duration: 0.8
+            })
+        });
+      },
+
+      jump (event) {
+        var url = this.$getConfig().bundleUrl;
+        url = url.split('/').slice(0,-1).join('/') + '/navigation.js';
+        console.log(url);
+        nav.push({
+          url: url,
+          animated: "true"
+        }, event => {
+          modal.toast({ message: 'callback: ' + event })
+        })
+      }
+    }
+  }
+
 </script>
+
+<style scoped>
+  .box {
+    border-width: 2px;
+    border-style: solid;
+    border-color: #BBB;
+    width: 250px;
+    height: 250px;
+    margin-top: 250px;
+    margin-left: 250px;
+    background-color: #EEE;
+  }
+
+  .row {
+    flex-direction: column;
+    justify-content: space-between
+  }
+  .button {
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+    border-radius: 12px;
+    padding-top: 20px;
+    padding-left: 36px;
+    padding-bottom: 20px;
+    padding-right: 36px;
+    font-size: 36px;
+    text-align: center;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+</style>

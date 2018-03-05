@@ -42,8 +42,28 @@
 /******/ 	return __webpack_require__(0);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
+/******/ ({
+
+/***/ 0:
+/***/ (function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var _src = __webpack_require__(7);
+
+	var _src2 = _interopRequireDefault(_src);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	if (window.Weex) {
+	  Weex.install(_src2.default);
+	} else if (window.weex) {
+	  weex.install(_src2.default);
+	}
+
+/***/ }),
+
+/***/ 7:
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -110,4 +130,5 @@
 	};
 
 /***/ })
-/******/ ]);
+
+/******/ });
