@@ -31,6 +31,14 @@ WX_EXPORT_METHOD(@selector(getCurrentExperiments:))
     callback([AdhocSDK getFlag:flag_name default:default_value],YES);
 }
 
+/**
+ *  异步方式从服务器直接获取实验变量的值
+ *
+ *  @param flag_name     adhoc后台设置的实验变量名字
+ *  @param default_value 指定实验变量的默认值
+ *  @param timeout       设置此次网络请求的超时时间
+ *  @param callback       网络执行结束后的相关操作
+ */
 - (void)asynchronousGetFlag:(NSString *)flag_name default:(id)default_value timeoutInterval:(NSInteger)timeout callback:(WXModuleKeepAliveCallback)callback
 {
     [AdhocSDK asynchronousGetFlag:flag_name defaultValue:default_value timeoutInterval:timeout completionHandler:^(id flag_value, NSError *error) {
