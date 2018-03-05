@@ -2,8 +2,8 @@
 //  WeexAdhocModule.m
 //  WeexPluginTemp
 //
-//  Created by  on 17/3/14.
-//  Copyright © 2017年 . All rights reserved.
+//  Created by xiaoxu on 17/3/14.
+//  Copyright © 2017年 AppAdhoc. All rights reserved.
 //
 
 #import "WeexAdhocModule.h"
