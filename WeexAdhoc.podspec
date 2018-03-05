@@ -2,16 +2,16 @@
 
 Pod::Spec.new do |s|
   s.name         = "WeexAdhoc"
-  s.version      = "0.0.4"
+  s.version      = "0.0.5"
   s.summary      = "Weex Plugin"
 
   s.description  = <<-DESC
-                   Weexplugin Source Description
+                   Weexplugin for link Weex and AdhocSDK.framework
                    DESC
 
   s.homepage     = "https://github.com/AppAdhoc/weex-adhoc"
   s.license = {
-    :type => 'Copyright',
+    :type => 'MIT',
     :text => <<-LICENSE
             copyright
     LICENSE
@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.ios.deployment_target = "8.0"
 
-  s.source       = { :git => 'https://github.com/AppAdhoc/weex-adhoc.git', :tag => '0.0.4' }
+  s.source       = { :git => 'https://github.com/AppAdhoc/weex-adhoc.git', :tag => '0.0.5' }
   s.source_files  = "ios/Sources/*.{h,m,mm}"
   
   s.requires_arc = true
@@ -30,5 +30,4 @@ Pod::Spec.new do |s|
   s.dependency "WeexPluginLoader"
   s.dependency "WeexSDK"
   s.dependency "AdhocSDK"
-  s.static_framework = true
 end
