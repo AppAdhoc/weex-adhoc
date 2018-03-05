@@ -18,7 +18,8 @@
 #import <WeexSDK/WeexSDK.h>
 #import <AVFoundation/AVFoundation.h>
 #import <ATSDK/ATManager.h>
-
+#import <WeexAdhoc/WeexAdhocModule.h>
+#import <AdhocSDK/AdhocSDK.h>
 @interface AppDelegate ()
 @end
 
@@ -36,6 +37,11 @@
     
     self.window.rootViewController = [[WXRootViewController alloc] initWithRootViewController:[self demoController]];
     [self.window makeKeyAndVisible];
+    
+    AdhocSDKConfig * con = [AdhocSDKConfig defaultConfig];
+    con.appKey = @"ADHOC_947d99cb-5b90-4d6e-b9b3-b7345041432c";
+    con.debugAssistiveShow = YES;
+    [AdhocSDK startWithConfigure:con options:launchOptions];
     
     [self startSplashScreen];
     
@@ -97,6 +103,7 @@
     [WXSDKEngine registerComponent:@"select" withClass:NSClassFromString(@"WXSelectComponent")];
     [WXSDKEngine registerModule:@"event" withClass:[WXEventModule class]];
     [WXSDKEngine registerModule:@"syncTest" withClass:[WXSyncTestModule class]];
+    [WXSDKEngine registerModule:@"adhoc" withClass:[WeexAdhocModule class]];
     
 #if !(TARGET_IPHONE_SIMULATOR)
     [self checkUpdate];

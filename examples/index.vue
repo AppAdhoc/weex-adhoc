@@ -2,7 +2,8 @@
   <div>
     <div class="box" @click="onclick" @longpress="onlongpress" @appear="onappear"  @disappear="ondisappear"></div>
     <div class="row">
-      <text class="button" @click="getFlagClick">getFlagClick</text>
+      <text class="button" @click="getFlagClick">getFlag</text>
+      <text class="button" @click="getFlagAsyncClick">getFlagAsync</text>
       <text class="button" @click="track">track</text>
       <text class="button" @click="trackAttribute">trackAttribute</text>
       <text class="button" @click="getExp">getExp</text>
@@ -49,7 +50,15 @@
       },
 
       getFlagClick (event) {
-        adhocModal.adhoc_getFlag('weexTest','weex',function(ret){
+        adhocModal.getFlag('flag2',300,function(ret){
+          modal.toast({
+            message: JSON.stringify(ret),
+            duration: 0.8
+          })
+        })
+      },
+      getFlagAsyncClick (event) {
+        adhocModal.asynchronousGetFlag('flag1',true,10,function(ret){
           modal.toast({
             message: JSON.stringify(ret),
             duration: 0.8
@@ -62,10 +71,10 @@
           message: 'track',
           duration: 0.8
         })
-        adhocModal.adhoc_track('weexName','1');
+        adhocModal.track('weexName','1');
       },
 
-      trackAttribute (event) {
+      trackWithAttribute (event) {
         modal.toast({
           message:'trackAttribute',
           duration: 0.8
