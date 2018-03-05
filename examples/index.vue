@@ -1,12 +1,12 @@
 <template>
   <div>
-    <div class="box" @click="onclick" @longpress="onlongpress" @appear="onappear"  @disappear="ondisappear"></div>
     <div class="row">
       <text class="button" @click="getFlagClick">getFlag</text>
       <text class="button" @click="getFlagAsyncClick">getFlagAsync</text>
       <text class="button" @click="track">track</text>
-      <text class="button" @click="trackAttribute">trackAttribute</text>
+      <text class="button" @click="trackWithAttribute">trackWithAttribute</text>
       <text class="button" @click="getExp">getExp</text>
+      <text class="button" @click="getClientid">getClientid</text>
       <text class="button" @click="jump">Jump webView</text>
     </div>
   </div>
@@ -19,36 +19,7 @@
   const adhocModal = weex.requireModule('adhoc')
   export default {
     methods: {
-      onclick (event) {
-        console.log('onclick:', event)
-
-        modal.toast({
-          message: syncTestModal.getString(),
-          duration: 0.8
-        })
-      },
-      onlongpress (event) {
-        console.log('onlongpress:', event)
-        modal.toast({
-          message: 'onlongpress:',
-          duration: 0.8
-        })
-      },
-      onappear (event) {
-        console.log('onappear:', event)
-        modal.toast({
-          message: 'onappear',
-          duration: 0.8
-        })
-      },
-      ondisappear (event) {
-        console.log('ondisappear:', event)
-        modal.toast({
-          message: 'ondisappear',
-          duration: 0.8
-        })
-      },
-
+      
       getFlagClick (event) {
         adhocModal.getFlag('flag2',300,function(ret){
           modal.toast({
@@ -80,15 +51,24 @@
           duration: 0.8
         })
         var data = {'he':'bei'};
-        adhocModal.adhoc_trackAttribute('xiao','ai',JSON.stringify(data));
+        adhocModal.trackWithAttribute('xiao','0.5',JSON.stringify(data));
       },
 
       getExp (event) {
-        adhocModal.adhoc_getCurrentExperimentsCallback(function(ret) {
+        adhocModal.getCurrentExperiments(function(ret) {
             modal.toast({
               message:JSON.stringify(ret),
               duration: 0.8
             })
+        });
+      },
+
+      getClientid (event) {
+        adhocModal.getClientid(function(ret) {
+          modal.toast({
+            message:JSON.stringify(ret),
+            duration:0.8
+          })
         });
       },
 
@@ -109,16 +89,7 @@
 </script>
 
 <style scoped>
-  .box {
-    border-width: 2px;
-    border-style: solid;
-    border-color: #BBB;
-    width: 250px;
-    height: 250px;
-    margin-top: 250px;
-    margin-left: 250px;
-    background-color: #EEE;
-  }
+  
 
   .row {
     flex-direction: column;

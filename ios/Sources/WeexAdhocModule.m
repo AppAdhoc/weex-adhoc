@@ -54,6 +54,7 @@ WX_EXPORT_METHOD(@selector(getCurrentExperiments:))
  */
 - (void)track:(NSString *)stat_name value:(NSString *)stat_value
 {
+    
     [AdhocSDK track:stat_name value:@([stat_value integerValue])];
 }
 
@@ -64,11 +65,12 @@ WX_EXPORT_METHOD(@selector(getCurrentExperiments:))
  @param stat_value 当前优化指标单次统计的权重
  @param stat_attribute 当前数据的定向条件
  */
-- (void)trackWithAttribute:(NSString *)stat_name value:(NSNumber *)stat_value attribute:(NSString *)stat_attribute
+- (void)trackWithAttribute:(NSString *)stat_name value:(NSString *)stat_value attribute:(NSString *)stat_attribute
 {
+    
     NSData *JSONData = [stat_attribute dataUsingEncoding:NSUTF8StringEncoding];
     NSDictionary *responseJSON = [NSJSONSerialization JSONObjectWithData:JSONData options:NSJSONReadingMutableLeaves error:nil];
-    [AdhocSDK track:stat_name value:stat_value attribute:responseJSON];
+    [AdhocSDK track:stat_name value:@([stat_value integerValue]) attribute:responseJSON];
 }
 
 /**
