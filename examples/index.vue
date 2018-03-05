@@ -13,7 +13,9 @@
 
 <script>
 
-	const plugin = weex.requireModule('WeexAdhoc');
+	const plugin = weex.requireModule('adhoc');
+	const modal = weex.requireModule('modal')
+
 	module.exports = {
 		data: {
 			value: '',
@@ -22,7 +24,12 @@
 		},
 		methods: {
 			createAction: function() {
-				plugin.show();
+				plugin.adhoc_getCurrentExperimentsCallback(function(ret) {
+            		modal.toast({
+              			message:JSON.stringify(ret),
+              			duration: 0.8
+            		})
+        		});
 
 			}
 		}

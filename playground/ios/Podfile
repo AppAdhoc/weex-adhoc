@@ -9,6 +9,7 @@ def common
     pod 'SocketRocket', '0.4.2'
     pod 'ATSDK-Weex', '0.0.1'
     pod 'WeexPluginLoader'
+    pod 'WeexAdhoc'
 end
 
 target 'WeexDemo' do
