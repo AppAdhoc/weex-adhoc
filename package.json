@@ -1,6 +1,6 @@
 {
   "name": "weex-adhoc",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "main": "./js/build/main.js",
   "description": "weex-adhoc extend for weex",
   "license": "Apache-2.0",
@@ -14,7 +14,7 @@
   },
    "android": {
     "type": "maven",
-    "dependency": "com.adhoc.weex:library:0.3.0"
+    "dependency": "com.adhoc.weex:library:0.5.1"
   },
   "keywords": [
     "weex",
