@@ -8,36 +8,29 @@ import com.taobao.weex.annotation.JSMethod;
 import com.taobao.weex.bridge.JSCallback;
 import com.taobao.weex.common.WXModule;
 
+import java.util.HashMap;
+
 @WeexModule(name = "weexAdhoc")
 public class WeexAdhocModule extends WXModule {
 
-    //sync ret example
-    //TODO: Auto-generated method example
     @JSMethod
-    public String syncRet(String param) {
-        return param;
-    }
-
-    //async ret example
-    //TODO: Auto-generated method example
-    @JSMethod
-    public void asyncRet(String param, JSCallback callback) {
-        callback.invoke(param);
-    }
-
-    @JSMethod
-    public <V> void adhoc_getFlag(String key, V defaultValue, JSCallback callBack) {
+    public <V> void getFlag(String key, V defaultValue, JSCallback callBack) {
         V value = AdhocTracker.getFlag(key, defaultValue);
         callBack.invoke(value);
     }
 
     @JSMethod
-    public void adhoc_track(String key, Number number) {
+    public void track(String key, Number number) {
         AdhocTracker.track(key, number);
     }
 
     @JSMethod
-    public <V> void asyncGetFlag(final String key, final V defaultValue, final JSCallback callback) {
+    public void trackWithAttribute(String key, Number number, HashMap<String, String> map) {
+        AdhocTracker.track(key, number, map);
+    }
+
+    @JSMethod
+    public <V> void asynchronousGetFlag(final String key, final V defaultValue, int timeoutMillseconds, final JSCallback callback) {
         AdhocTracker.asyncGetFlag(new OnAdHocReceivedData() {
             @Override
             public void onReceivedData(ExperimentFlags experimentFlags) {

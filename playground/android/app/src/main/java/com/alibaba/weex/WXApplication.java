@@ -229,6 +229,8 @@ import com.taobao.weex.common.WXException;
 
 import com.alibaba.weex.plugin.loader.WeexPluginContainer;
 
+import org.weex.plugin.weexadhoc.WeexAdhocModule;
+
 public class WXApplication extends Application {
 
   @Override
@@ -245,7 +247,7 @@ public class WXApplication extends Application {
      * Fresco.initialize(this,config);
      **/
 //    initDebugEnvironment(true, false, "DEBUG_SERVER_HOST");
-    WXSDKEngine.addCustomOptions("appName", "WXSample");
+    WXSDKEngine.addCustomOptions("appName", "Adhoc-Weex");
     WXSDKEngine.addCustomOptions("appGroup", "WXApp");
     WXSDKEngine.initialize(this,
                            new InitConfig.Builder()
@@ -268,6 +270,7 @@ public class WXApplication extends Application {
 
       WXSDKEngine.registerModule("myModule", MyModule.class);
       WXSDKEngine.registerModule("geolocation", GeolocationModule.class);
+      WXSDKEngine.registerModule("adhoc", WeexAdhocModule.class);
 
 
 

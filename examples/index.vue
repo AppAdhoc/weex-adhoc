@@ -64,7 +64,7 @@
       },
 
       getClientid (event) {
-        adhocModal.getClientid(function(ret) {
+        adhocModal.getClientId(function(ret) {
           modal.toast({
             message:JSON.stringify(ret),
             duration:0.8
