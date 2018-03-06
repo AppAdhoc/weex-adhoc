@@ -1,7 +1,7 @@
 ## weex-adhoc iOS API
 
 
-所有的 API 都能在 [weex-adhoc/examples/index.vue](../examples/index.js) 中查到。
+所有的 API 都能在 [weex-adhoc/examples/index.vue](../examples/index.vue) 中查到。
 
 #### 获取AdhocModule
 ```
