@@ -21,9 +21,10 @@ weex-adhoc是一个weex插件，可以通过weexpack快速集成，可以丰富w
 - 添加插件
   ```
   weex plugin add weex-adhoc
-  ```
+  ```  
+  
 # 项目地址
-[github](please add you source code address)
+[github](https://github.com/AppAdhoc/weex-adhoc)
 
 # 已有工程集成
 ## iOS集成插件WeexAdhoc
@@ -59,5 +60,10 @@ weex-adhoc是一个weex插件，可以通过weexpack快速集成，可以丰富w
   在相应工程的package.json文件的dependencies中添加
   ```
   weex-adhoc:{$version}'
-  ``` 
-  
+  ```   
+  
+## API
+
+[iOS API](documents/ios_api.md)
+
+[Android API](documents/android_api.md)

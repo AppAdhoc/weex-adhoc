@@ -63,7 +63,7 @@
         });
       },
 
-      getClientid (event) {
+      getClientId (event) {
         adhocModal.getClientId(function(ret) {
           modal.toast({
             message:JSON.stringify(ret),
