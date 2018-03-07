@@ -35,7 +35,7 @@ To fix this issue, set the `targetSdkVersion` to the highest available value. Th
         quickfix="studio">
         <location
             file="/Users/jzxiang/code/weex-adhoc/android/library/build.gradle"
-            line="37"
+            line="38"
             column="5"/>
     </issue>
 

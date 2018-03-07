@@ -54,11 +54,11 @@ public class WeexAdhocModule extends WXModule {
     }
 
     @JSMethod
-    public <V> void asynchronousGetFlag(final String key, final V defaultValue, int timeoutMillseconds, final JSCallback callback) {
-        AdhocTracker.asyncGetFlag(timeoutMillseconds, new OnAdHocReceivedData() {
+    public <V> void asynchronousGetFlag(final String key, final V defaultValue, int timeoutSeconds, final JSCallback callback) {
+        AdhocTracker.asyncGetFlag(timeoutSeconds * 1000, new OnAdHocReceivedData() {
             @Override
             public void onReceivedData(ExperimentFlags experimentFlags) {
-                callback.invoke(experimentFlags.getFlag(key, defaultValue));
+                callback.invokeAndKeepAlive(experimentFlags.getFlag(key, defaultValue));
             }
         });
     }
