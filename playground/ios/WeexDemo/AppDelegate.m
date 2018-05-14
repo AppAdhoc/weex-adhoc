@@ -40,7 +40,7 @@
     
     AdhocSDKConfig * con = [AdhocSDKConfig defaultConfig];
     con.appKey = @"ADHOC_947d99cb-5b90-4d6e-b9b3-b7345041432c";
-    con.debugAssistiveShow = YES;
+    con.enableDebugAssist = YES;
     [AdhocSDK startWithConfigure:con options:launchOptions];
     
     [self startSplashScreen];

@@ -17,7 +17,7 @@ WX_EXPORT_METHOD(@selector(asynchronousGetFlag:default:timeoutInterval:callback:
 WX_EXPORT_METHOD(@selector(track:value:))
 WX_EXPORT_METHOD(@selector(trackWithAttribute:value:attribute:))
 WX_EXPORT_METHOD(@selector(getCurrentExperiments:))
-WX_EXPORT_METHOD(@selector(getClientID))
+WX_EXPORT_METHOD(@selector(getClientId))
 /**
  *  获取后台设置的指定的实验变量的值，实验变量的名字注意与后台保持一致
  *  该方法从SDK缓存中直接读取，如需同步获取flag值，请使用下面的接口
@@ -86,7 +86,7 @@ WX_EXPORT_METHOD(@selector(getClientID))
  *
  *  @param callback clientID
  */
-- (void)getClientID:(WXModuleKeepAliveCallback)callback
+- (void)getClientId:(WXModuleKeepAliveCallback)callback
 {
     callback([AdhocSDK getClientID],YES);
 }

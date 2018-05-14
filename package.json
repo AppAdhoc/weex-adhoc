@@ -1,6 +1,6 @@
 {
   "name": "weex-adhoc",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "./js/build/main.js",
   "description": "weex-adhoc extend for weex",
   "license": "Apache-2.0",
@@ -10,7 +10,7 @@
     "//": "安装类型为pod",
     "type": "pod",
     "name": "WeexAdhoc",
-    "version": "1.0.1"
+    "version": "1.0.2"
   },
    "android": {
     "type": "maven",
