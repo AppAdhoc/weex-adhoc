@@ -13,7 +13,7 @@
 
 WX_PlUGIN_EXPORT_MODULE(weexAdhoc, WeexAdhocModule)
 WX_EXPORT_METHOD(@selector(getFlag:default:callback:))
-WX_EXPORT_METHOD(@selector(getFlagFast:defaultValue:timeoutInterval:completionHandler:))
+WX_EXPORT_METHOD(@selector(getFlagFast:defaultValue:timeoutInterval:callback:))
 WX_EXPORT_METHOD(@selector(asynchronousGetFlag:default:timeoutInterval:callback:))
 WX_EXPORT_METHOD(@selector(track:value:))
 WX_EXPORT_METHOD(@selector(trackWithAttribute:value:attribute:))
