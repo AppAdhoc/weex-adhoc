@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="/Users/jzxiang/code/weex-adhoc/android/library/src/main/jniLibs"/></dataSet><dataSet config="debug"><source path="/Users/jzxiang/code/weex-adhoc/android/library/src/debug/jniLibs"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="/Users/jiaozhengxiang/code/weex-adhoc/android/library/src/main/jniLibs"/></dataSet><dataSet config="debug"><source path="/Users/jiaozhengxiang/code/weex-adhoc/android/library/src/debug/jniLibs"/></dataSet></merger>

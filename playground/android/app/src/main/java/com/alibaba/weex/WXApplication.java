@@ -272,8 +272,6 @@ public class WXApplication extends Application {
       WXSDKEngine.registerModule("geolocation", GeolocationModule.class);
       WXSDKEngine.registerModule("adhoc", WeexAdhocModule.class);
 
-
-
 //      WXSDKEngine.registerComponent("gcanvas", WXGcanvasComponent.class);
 //      WXSDKEngine.registerModule("gcanvas", GcanvasModule.class);
 

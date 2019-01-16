@@ -22,7 +22,7 @@ weex-adhoc是一个weex插件，可以通过weexpack快速集成，可以丰富w
   ```
   weex plugin add weex-adhoc
   ```  
-  
+
 # 项目地址
 [github](https://github.com/AppAdhoc/weex-adhoc)
 
@@ -39,17 +39,26 @@ weex-adhoc是一个weex插件，可以通过weexpack快速集成，可以丰富w
   ```
 
 ## 安卓集成插件weexadhoc
-- 命令行集成
+1.添加 Android 原生 SDK 依赖
+  AppAdhoc提供两种SDK包，其中精简包仅支持编程试验，标准包支持编程和可视化试验。
+  通过在工程build.gradle配置脚本中添加maven线上依赖，导入最新版本SDK。在Gradle依赖中添加：
+
+  ```
+  //标准包
+  dependencies {
+    implementation 'com.appadhoc:abtest:5.0.0'
+  }
+  ```
+2.添加 SDK
+* 命令行集成
   ```
   weexpack plugin add weex-adhoc
   ```
-- 手动集成
+* 手动集成
   在相应工程的build.gradle文件的dependencies中添加
   ```
-  compile 'com.adhoc.weex:library:1.0.0'
-  ``` 
-  注意：您需要自行指定插件的groupId和version并将构建产物发布到相应的依赖管理仓库内去（例如maven）, 您也可以对插件的name进行自定义，默认将使用插件工程的名称作为name
-
+  compile 'com.adhoc.weex:library:5.0.0'
+  ```
 
 ## 浏览器端集成 weex-adhoc
 - 命令行集成
@@ -61,7 +70,7 @@ weex-adhoc是一个weex插件，可以通过weexpack快速集成，可以丰富w
   ```
   weex-adhoc:{$version}'
   ```   
-  
+
 ## API
 
 [iOS API](documents/ios_api.md)

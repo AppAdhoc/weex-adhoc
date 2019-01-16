@@ -10,6 +10,11 @@ android {
         versionCode 1
         versionName "1.0"
 
+        javaCompileOptions {
+            annotationProcessorOptions {
+                includeCompileClasspath = true
+            }
+        }
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }
@@ -39,6 +44,7 @@ dependencies {
     compile 'com.taobao.android:weex_sdk:0.16.0'
     provided 'org.weex.plugin:processor:1.0.2'
     testCompile 'junit:junit:4.12'
+    provided 'com.appadhoc:abtest:5.0.0'
 }
 apply from: "jcupload.gradle"
 

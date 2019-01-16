@@ -72,4 +72,15 @@ public class WeexAdhocModule extends WXModule {
     public void getCurrentExperiments(JSCallback callback) {
         callback.invoke(AdhocTracker.getCurrentExperiments().toString());
     }
+
+    @JSMethod
+    public <V> void getFlagFast(final String key, final V defaultValue, int timeoutSeconds, final JSCallback callback) {
+        AdhocTracker.fastGetFlag(timeoutSeconds * 1000, new OnAdHocReceivedData() {
+            @Override
+            public void onReceivedData(ExperimentFlags experimentFlags) {
+                callback.invokeAndKeepAlive(experimentFlags.getFlag(key, defaultValue));
+            }
+        });
+    }
+
 }
