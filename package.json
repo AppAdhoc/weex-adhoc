@@ -19,7 +19,7 @@
   "keywords": [
     "weex",
     "android",
-    "ios",
+    "ios"
   ],
   "engines": {
     "node": ">=4"
