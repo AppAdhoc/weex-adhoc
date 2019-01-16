@@ -13,6 +13,7 @@
 
 WX_PlUGIN_EXPORT_MODULE(weexAdhoc, WeexAdhocModule)
 WX_EXPORT_METHOD(@selector(getFlag:default:callback:))
+WX_EXPORT_METHOD(@selector(getFlagFast:defaultValue:timeoutInterval:callback:))
 WX_EXPORT_METHOD(@selector(asynchronousGetFlag:default:timeoutInterval:callback:))
 WX_EXPORT_METHOD(@selector(track:value:))
 WX_EXPORT_METHOD(@selector(trackWithAttribute:value:attribute:))
@@ -30,6 +31,22 @@ WX_EXPORT_METHOD(@selector(getClientId:))
 - (void)getFlag:(NSString *)flag_name default:(id)default_value callback:(WXModuleKeepAliveCallback)callback
 {
     callback([AdhocSDK getFlag:flag_name default:default_value],YES);
+}
+
+/**
+ *  异步方式从缓存直接获取试验变量的值，并检查更新本地flags数据
+ *
+ *  @param flagName     adhoc后台设置的试验变量名字
+ *  @param defaultValue 指定试验变量的默认值
+ *  @param timeout 设置此次网络请求的超时时间，单位为秒(s)，默认 30s
+ *  @param callback 网络执行结束后的相关操作
+ */
+
+- (void)getFlagFast:(NSString *)flagName defaultValue:(id)defaultValue timeoutInterval:(NSTimeInterval)timeout callback:(WXModuleKeepAliveCallback)callback
+{
+    [AdhocSDK getFlagFast:flagName defaultValue:defaultValue timeoutInterval:timeout completionHandler:^(id flagValue, NSError *error) {
+        callback(flagValue,YES);
+    }];
 }
 
 /**
