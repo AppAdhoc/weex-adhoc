@@ -2,12 +2,12 @@
   <div>
     <div class="row">
       <text class="button" @click="getFlagClick">getFlag</text>
+      <text class="button" @click="getFlagFastClick">getFlagFast</text>
       <text class="button" @click="getFlagAsyncClick">getFlagAsync</text>
       <text class="button" @click="track">track</text>
       <text class="button" @click="trackWithAttribute">trackWithAttribute</text>
       <text class="button" @click="getExp">getExp</text>
-      <text class="button" @click="getClientid">getClientid</text>
-      <text class="button" @click="jump">Jump webView</text>
+      <text class="button" @click="getClientId">getClientId</text>
     </div>
   </div>
 </template>
@@ -22,6 +22,14 @@
       
       getFlagClick (event) {
         adhocModal.getFlag('flag2',300,function(ret){
+          modal.toast({
+            message: JSON.stringify(ret),
+            duration: 0.8
+          })
+        })
+      },
+      getFlagFastClick (event) {
+        adhocModal.getFlagFast('flag2',300,30,function(ret){
           modal.toast({
             message: JSON.stringify(ret),
             duration: 0.8
@@ -108,5 +116,8 @@
     text-align: center;
     font-weight: 500;
     margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
   }
 </style>

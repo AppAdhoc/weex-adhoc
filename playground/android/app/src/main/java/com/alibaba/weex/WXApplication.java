@@ -208,6 +208,8 @@ import android.app.Activity;
 import android.app.Application;
 import android.os.Bundle;
 
+import com.adhoc.adhocsdk.AdhocTracker;
+import com.adhoc.config.AdhocConfig;
 import com.alibaba.weex.commons.adapter.DefaultWebSocketAdapterFactory;
 import com.alibaba.weex.commons.adapter.ImageAdapter;
 import com.alibaba.weex.commons.adapter.JSExceptionAdapter;
@@ -261,15 +263,15 @@ public class WXApplication extends Application {
 
     try {
       Fresco.initialize(this);
-      WXSDKEngine.registerComponent("synccomponent", WXComponentSyncTest.class);
-
-      WXSDKEngine.registerComponent("richtext", RichText.class);
-      WXSDKEngine.registerModule("render", RenderModule.class);
+//      WXSDKEngine.registerComponent("synccomponent", WXComponentSyncTest.class);
+//
+//      WXSDKEngine.registerComponent("richtext", RichText.class);
+//      WXSDKEngine.registerModule("render", RenderModule.class);
       WXSDKEngine.registerModule("event", WXEventModule.class);
-      WXSDKEngine.registerModule("syncTest", SyncTestModule.class);
-
-      WXSDKEngine.registerModule("myModule", MyModule.class);
-      WXSDKEngine.registerModule("geolocation", GeolocationModule.class);
+//      WXSDKEngine.registerModule("syncTest", SyncTestModule.class);
+//
+//      WXSDKEngine.registerModule("myModule", MyModule.class);
+//      WXSDKEngine.registerModule("geolocation", GeolocationModule.class);
       WXSDKEngine.registerModule("adhoc", WeexAdhocModule.class);
 
 //      WXSDKEngine.registerComponent("gcanvas", WXGcanvasComponent.class);
@@ -277,6 +279,18 @@ public class WXApplication extends Application {
 
       WeexPluginContainer.loadAll(getApplicationContext());
 
+      AdhocConfig adhocConfig = new AdhocConfig.Builder()
+              //设置App上下文(必要参数)
+              .context(this)
+              //设置Appkey(必要参数)
+              .appKey("您申请的APPKEY")
+              // 开启调试按钮
+              .enableDebugAssist(true)
+              // 多进程数据安全设置选项
+              // .supportMultiProcess()
+              .build();
+
+      AdhocTracker.init(adhocConfig);
       /**
        * override default image tag
        * WXSDKEngine.registerComponent("image", FrescoImageComponent.class);

@@ -50,14 +50,14 @@
 	var __vue_styles__ = []
 
 	/* styles */
-	__vue_styles__.push(__webpack_require__(1)
+	__vue_styles__.push(__webpack_require__(4)
 	)
 
 	/* script */
-	__vue_exports__ = __webpack_require__(2)
+	__vue_exports__ = __webpack_require__(5)
 
 	/* template */
-	var __vue_template__ = __webpack_require__(3)
+	var __vue_template__ = __webpack_require__(6)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -69,10 +69,10 @@
 	if (typeof __vue_options__ === "function") {
 	  __vue_options__ = __vue_options__.options
 	}
-	__vue_options__.__file = "/Users/jiaozhengxiang/code/weex-adhoc/examples/index.vue"
+	__vue_options__.__file = "/Users/jiaozhengxiang/code/weex-adhoc/examples/navigation.vue"
 	__vue_options__.render = __vue_template__.render
 	__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-	__vue_options__._scopeId = "data-v-16fc35cd"
+	__vue_options__._scopeId = "data-v-0553b5ae"
 	__vue_options__.style = __vue_options__.style || {}
 	__vue_styles__.forEach(function (module) {
 	  for (var name in module) {
@@ -89,12 +89,19 @@
 
 
 /***/ }),
-/* 1 */
+/* 1 */,
+/* 2 */,
+/* 3 */,
+/* 4 */
 /***/ (function(module, exports) {
 
 	module.exports = {
-	  "row": {
+	  "wrapper": {
 	    "flexDirection": "column",
+	    "padding": 10
+	  },
+	  "row": {
+	    "flexDirection": "row",
 	    "justifyContent": "space-between"
 	  },
 	  "button": {
@@ -109,22 +116,59 @@
 	    "fontSize": 36,
 	    "textAlign": "center",
 	    "fontWeight": "500",
-	    "marginBottom": 10,
-	    "marginLeft": 10,
-	    "marginRight": 10,
-	    "marginTop": 10
+	    "marginBottom": 10
+	  },
+	  "button-enabled": {
+	    "opacity": 1
+	  },
+	  "button-disabled": {
+	    "opacity": 0.65
 	  }
 	}
 
 /***/ }),
-/* 2 */
+/* 5 */
 /***/ (function(module, exports) {
 
 	'use strict';
 
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
 	//
 	//
 	//
@@ -141,71 +185,51 @@
 	//
 
 	var nav = weex.requireModule('navigator');
-	var modal = weex.requireModule('modal');
-	var syncTestModal = weex.requireModule('syncTest');
-	var adhocModal = weex.requireModule('adhoc');
-	exports.default = {
+	module.exports = {
+	  data: {
+	    pagestart: '',
+	    pagefinish: '',
+	    title: '',
+	    error: '',
+	    canGoBack: false,
+	    canGoForward: false
+	  },
 	  methods: {
-	    getFlagClick: function getFlagClick(event) {
-	      adhocModal.getFlag('flag2', 300, function (ret) {
-	        modal.toast({
-	          message: JSON.stringify(ret),
-	          duration: 0.8
-	        });
-	      });
+
+	    goBack: function goBack() {
+	      var webview = weex.requireModule('webview');
+	      webview.goBack(this.$refs.webview);
 	    },
-	    getFlagFastClick: function getFlagFastClick(event) {
-	      adhocModal.getFlagFast('flag2', 300, 30, function (ret) {
-	        modal.toast({
-	          message: JSON.stringify(ret),
-	          duration: 0.8
-	        });
-	      });
+	    goForward: function goForward() {
+	      var webview = weex.requireModule('webview');
+	      webview.goForward(this.$refs.webview);
 	    },
-	    getFlagAsyncClick: function getFlagAsyncClick(event) {
-	      adhocModal.asynchronousGetFlag('flag1', true, 10, function (ret) {
-	        modal.toast({
-	          message: JSON.stringify(ret),
-	          duration: 0.8
-	        });
-	      });
+	    reload: function reload() {
+	      var webview = weex.requireModule('webview');
+	      webview.reload(this.$refs.webview);
 	    },
-	    track: function track(event) {
-	      modal.toast({
-	        message: 'track',
-	        duration: 0.8
-	      });
-	      adhocModal.track('weexName', '1');
+	    onPageStart: function onPageStart(e) {
+	      this.pagestart = e.url;
 	    },
-	    trackWithAttribute: function trackWithAttribute(event) {
-	      modal.toast({
-	        message: 'trackAttribute',
-	        duration: 0.8
-	      });
-	      var data = { 'he': 'bei' };
-	      adhocModal.trackWithAttribute('xiao', '0.5', JSON.stringify(data));
+	    onPageFinish: function onPageFinish(e) {
+	      this.pagefinish = e.url;
+	      this.canGoBack = e.canGoBack;
+	      this.canGoForward = e.canGoForward;
+	      if (e.title) {
+	        this.title = e.title;
+	      }
 	    },
-	    getExp: function getExp(event) {
-	      adhocModal.getCurrentExperiments(function (ret) {
-	        modal.toast({
-	          message: JSON.stringify(ret),
-	          duration: 0.8
-	        });
-	      });
+	    onError: function onError(e) {
+	      this.error = url;
 	    },
-	    getClientId: function getClientId(event) {
-	      adhocModal.getClientId(function (ret) {
-	        modal.toast({
-	          message: JSON.stringify(ret),
-	          duration: 0.8
-	        });
-	      });
+	    onReceivedTitle: function onReceivedTitle(e) {
+	      this.title = e.title;
 	    },
-	    jump: function jump(event) {
+	    popAction: function popAction(e) {
 	      var url = this.$getConfig().bundleUrl;
-	      url = url.split('/').slice(0, -1).join('/') + '/navigation.js';
+	      url = url.split('/').slice(0, -1).join('/') + '/index.js';
 	      console.log(url);
-	      nav.push({
+	      nav.pop({
 	        url: url,
 	        animated: "true"
 	      }, function (event) {
@@ -216,48 +240,71 @@
 	};
 
 /***/ }),
-/* 3 */
+/* 6 */
 /***/ (function(module, exports) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-	  return _c('div', [_c('div', {
-	    staticClass: ["row"]
+	  return _c('div', {
+	    staticClass: ["wrapper"]
+	  }, [_c('web', {
+	    ref: "webview",
+	    staticStyle: {
+	      width: "730px",
+	      height: "900px"
+	    },
+	    attrs: {
+	      "src": "http://192.168.0.108/index.html"
+	    },
+	    on: {
+	      "pagestart": _vm.onPageStart,
+	      "pagefinish": _vm.onPageFinish,
+	      "error": _vm.onError,
+	      "receivedtitle": _vm.onReceivedTitle
+	    }
+	  }), _c('div', {
+	    staticClass: ["row"],
+	    staticStyle: {
+	      paddingTop: "10px"
+	    }
 	  }, [_c('text', {
 	    staticClass: ["button"],
+	    class: [_vm.canGoBack ? 'button-enabled' : 'button-disabled'],
 	    on: {
-	      "click": _vm.getFlagClick
+	      "click": _vm.goBack
 	    }
-	  }, [_vm._v("getFlag")]), _c('text', {
+	  }, [_vm._v("←")]), _c('text', {
+	    staticClass: ["button"],
+	    class: [_vm.canGoForward ? 'button-enabled' : 'button-disabled'],
+	    on: {
+	      "click": _vm.goForward
+	    }
+	  }, [_vm._v("→")]), _c('text', {
 	    staticClass: ["button"],
 	    on: {
-	      "click": _vm.getFlagFastClick
+	      "click": _vm.reload
 	    }
-	  }, [_vm._v("getFlagFast")]), _c('text', {
+	  }, [_vm._v("reload")])]), _c('text', {
+	    attrs: {
+	      "testId": "pagestart"
+	    }
+	  }, [_vm._v("pagestart: " + _vm._s(_vm.pagestart))]), _c('text', {
+	    attrs: {
+	      "testId": "pagefinish"
+	    }
+	  }, [_vm._v("pagefinish: " + _vm._s(_vm.pagefinish))]), _c('text', {
+	    attrs: {
+	      "testId": "title"
+	    }
+	  }, [_vm._v("title: " + _vm._s(_vm.title))]), _c('text', {
+	    attrs: {
+	      "testId": "error"
+	    }
+	  }, [_vm._v("error: " + _vm._s(_vm.error))]), _c('text', {
 	    staticClass: ["button"],
 	    on: {
-	      "click": _vm.getFlagAsyncClick
+	      "click": _vm.popAction
 	    }
-	  }, [_vm._v("getFlagAsync")]), _c('text', {
-	    staticClass: ["button"],
-	    on: {
-	      "click": _vm.track
-	    }
-	  }, [_vm._v("track")]), _c('text', {
-	    staticClass: ["button"],
-	    on: {
-	      "click": _vm.trackWithAttribute
-	    }
-	  }, [_vm._v("trackWithAttribute")]), _c('text', {
-	    staticClass: ["button"],
-	    on: {
-	      "click": _vm.getExp
-	    }
-	  }, [_vm._v("getExp")]), _c('text', {
-	    staticClass: ["button"],
-	    on: {
-	      "click": _vm.getClientId
-	    }
-	  }, [_vm._v("getClientId")])])])
+	  }, [_vm._v("返回")])], 1)
 	},staticRenderFns: []}
 	module.exports.render._withStripped = true
 
