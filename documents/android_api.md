@@ -65,7 +65,7 @@ const adhocModal = weex.requireModule('adhoc')
   });
   ```
 
-- <V> getFlagFast(String, V, Function)
+- <V> getFlagFast(String, V, Function)  
     异步方式从服务器直接获取实验变量的值
 
     ```
