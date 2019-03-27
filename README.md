@@ -46,7 +46,7 @@ weex-adhoc是一个weex插件，可以通过weexpack快速集成，可以丰富w
   ```
   //标准包
   dependencies {
-    implementation 'com.appadhoc:abtest:5.0.0'
+    implementation 'com.appadhoc:abtest:5.0.4'
   }
   ```
 2.添加 SDK
@@ -57,7 +57,7 @@ weex-adhoc是一个weex插件，可以通过weexpack快速集成，可以丰富w
 * 手动集成
   在相应工程的build.gradle文件的dependencies中添加
   ```
-  compile 'com.adhoc.weex:library:5.0.0'
+  compile 'com.adhoc.weex:library:5.0.2'
   ```
 
 ## 浏览器端集成 weex-adhoc
