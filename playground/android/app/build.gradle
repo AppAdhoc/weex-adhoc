@@ -77,5 +77,5 @@ dependencies {
     compile "com.taobao.android:weex_sdk:${rootProject.ext.weex_sdk}"
     compile 'org.weex.plugin:plugin-loader:1.0.0'
     compile project(path: ':library')
-    compile 'com.appadhoc:abtest:5.0.4'
+    compile 'com.appadhoc:abtest:5.1.2'
 }
