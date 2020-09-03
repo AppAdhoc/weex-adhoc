@@ -48,7 +48,7 @@
     "query-string": "^4.2.3",
     "scroll-to": "0.0.2",
     "semver": "^5.1.0",
-    "serve": "^6.4.1",
+    "serve": "^10.1.2",
     "webpack-cli": "^3.2.1",
     "weex-components": "^0.2.0",
     "weex-picker": "^0.1.0",
